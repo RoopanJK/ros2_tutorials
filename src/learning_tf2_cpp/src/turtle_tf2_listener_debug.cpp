@@ -45,7 +45,7 @@ class FrameListener : public rclcpp::Node
         void on_timer()
         {
             std::string fromFrameRe1 = target_frame_.c_str();
-            std::string toFrameRe1 = "turtle2";
+            std::string toFrameRe1 = "turtle3";
 
             if(turtle_spawning_service_ready_)
             {
@@ -57,7 +57,7 @@ class FrameListener : public rclcpp::Node
                         rclcpp::Time when = this->get_clock()->now() - rclcpp::Duration(5, 0);
                         t = tf_buffer_->lookupTransform(
                             toFrameRe1, fromFrameRe1,
-                            when, 50ms);
+                            this->now());
                     }
                     catch (const tf2::TransformException &ex)
                     {

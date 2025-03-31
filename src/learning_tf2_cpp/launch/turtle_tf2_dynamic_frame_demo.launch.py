@@ -16,7 +16,6 @@ def generate_launch_description():
         launch_arguments={'target_frame': 'carrot1'}.items(),
         )
 
-    
     return LaunchDescription([
         demo_nodes,
         Node(
@@ -25,5 +24,3 @@ def generate_launch_description():
             name='dynamic_broadcaster',
         )
     ])
-    
-    
